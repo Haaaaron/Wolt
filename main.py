@@ -16,6 +16,7 @@ def hello_world():
     
     popular_restaurants = discovery_data.by_popularity(restaurants_df)
     new_restaurants = discovery_data.by_launch_date(restaurants_df)
+    nearby_restaurants = discovery_data.by_distance(restaurants_df, [lat,lon])
     return "Hello"
 
 if __name__ == '__main__':
