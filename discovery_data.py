@@ -6,7 +6,7 @@ from dateutil.relativedelta import *
 
 #Was going to use vectorize but found this better method that handles any length vectors
 #r: nominal earth equatorial radius
-def spherical_dist(coordinate_1,coordinate_2,r = 3598.75):
+def spherical_dist(coordinate_1,coordinate_2,r = 6371.0088):
 
     cos_lat1 = np.cos(coordinate_1[..., 0])
     cos_lat2 = np.cos(coordinate_2[..., 0])
@@ -43,15 +43,16 @@ def by_distance(df, user_coordinates):
     #List object as elements are a little tedious to work with
     #conversion to radians
     restaurant_coordinates = np.deg2rad(np.array(df['location'].apply(pd.Series)))
+    restaurant_coordinates = np.flip(restaurant_coordinates,1)
     user_coordinates = np.deg2rad(user_coordinates)
-    print(user_coordinates[...,0])
-    distance = spherical_dist(restaurant_coordinates[1],user_coordinates)
-    print(distance)
 
+    distance = spherical_dist(restaurant_coordinates,user_coordinates)
+    df['distance'] = distance
+    df = df.sort_values(by=['online',"distance"], ascending=False).reset_index()
 
+    print(df)
 
-
-
+    return None
 
 if __name__ == "__main__":
     df = json_data.as_dataframe()
