@@ -5,7 +5,7 @@ import datetime
 from dateutil.relativedelta import *
 
 #Was going to use vectorize but found this better method that handles any length vectors
-#r: nominal earth equatorial radius
+#r: Mean radius of earh (km). This allows for the smallest error margin. Best would be a area specific radius, but that woul be quite hardcode
 def spherical_dist(coordinate_1,coordinate_2,r = 6371.0088):
 
     cos_lat1 = np.cos(coordinate_1[..., 0])
@@ -38,7 +38,7 @@ def by_launch_date(df):
 
     return df.head(10)
 
-def by_distance(df, user_coordinates):
+def by_distance(df, user_coordinates, max_distance=1.5):
     
     #List object as elements are a little tedious to work with
     #conversion to radians
@@ -48,16 +48,21 @@ def by_distance(df, user_coordinates):
 
     distance = spherical_dist(restaurant_coordinates,user_coordinates)
     df['distance'] = distance
-    df = df.sort_values(by=['online',"distance"], ascending=False).reset_index()
+    df = df.sort_values(by=['online',"distance"], ascending=[False,True]).reset_index()
+    df.pop('index')
 
-    print(df)
+    #we create a mask yet again to drop the restaurants that are further than max_distance=1.5
+    mask = df['distance'] < max_distance
+    df = df[mask]
 
-    return None
+    return df.head(10)
 
 if __name__ == "__main__":
     df = json_data.as_dataframe()
-
+    print(df)
     #df = by_launch_date(df)
 
     df = by_distance(df,[60.1709,24.941])
-    print(df)
+
+    print(json_data.dataframe_to_json(df))
+    

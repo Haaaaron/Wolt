@@ -1,10 +1,10 @@
-import json
+import json as JSON
 import pandas as pd
 
 def load_json(file='restaurants.json'):
 
     with open(file) as json_file:
-        data = json.load(json_file)
+        data = JSON.load(json_file)
 
     return data
 
@@ -15,8 +15,14 @@ def as_dataframe():
 
     return df
 
+def dataframe_to_json(df):
 
-
+    if (df.empty):
+        return None
+    result = df.to_json(orient="records")
+    parsed = JSON.loads(result)
+    
+    return JSON.dumps(parsed, indent=4)  
 
 
 
