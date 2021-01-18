@@ -1,5 +1,6 @@
 import json as JSON
 import pandas as pd
+import sys
 
 def load_as_df(file='restaurants.json'):
     try:
@@ -9,13 +10,15 @@ def load_as_df(file='restaurants.json'):
             return df, None
     except OSError as err:
         return None, "JSON file {} not found".format(file)
+    except KeyError as err:
+        return None, "Key:{} not found in JSON file".format(err)
     except:
-        return None, "Error in file format {}".format(file)
+        return None, sys.exc_info()[1]
 
 def dataframe_to_json(section):
     if (section[1].empty):
         return None
-
+        
     result = {}
     result['title'] = section[0]
     result['restaurants'] = section[1].to_json(orient="records")
