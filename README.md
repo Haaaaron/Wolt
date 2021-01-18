@@ -38,7 +38,7 @@ or running app.py directly.
 
     python3 app.py
 
-### Environment variables:
+## Environment variables:
 
 Environment variables can be set with flask run.
 
