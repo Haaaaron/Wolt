@@ -32,8 +32,10 @@ def setUpModule():
     df_test_distance, junk = load_as_df(file = TESTFILE_DISTANCE)
 
 class DiscoveryTest(unittest.TestCase):
+    """ Test backend.discovery_data.py """
 
     def test_spherical_distance(self):
+        """ Test discovery_data.spherical_distance calculates correctly """
         location_1 = np.deg2rad([24.9412,60.1709])
         location_2 = np.deg2rad([24.9432,60.1698])
         correct_dist =   0.165
@@ -42,6 +44,7 @@ class DiscoveryTest(unittest.TestCase):
         self.assertAlmostEqual(result,correct_dist,places=3)
 
     def test_arbitrary_vector_input(self):
+        """ Test discovery_data.spherical_distance calculates arbitrary vector lengths """
         n = random.randint(1,100)
         location_1 = np.deg2rad([24.9412,60.1709])
         location_1 = np.tile(location_1,(n,1))
@@ -52,6 +55,7 @@ class DiscoveryTest(unittest.TestCase):
         self.assertIsNone(npt.assert_almost_equal(result,correct_dist))
 
     def test_dtype(self):
+        """ Test discovery_data.by_* functions return correct dtypes """
 
         if df_test is None:
             falure_string = "{} not found".format(TESTFILE)
@@ -67,6 +71,7 @@ class DiscoveryTest(unittest.TestCase):
         self.assertIsNone(pdt.assert_series_equal(df_test.dtypes,df_distance.dtypes))
 
     def test_by_popularity(self):
+        """ Test discovery_data.by_popularity returns correct DataFrame """
         df_popularity = by_popularity(df_test)
 
         if df_test_popularity is None:
@@ -77,6 +82,7 @@ class DiscoveryTest(unittest.TestCase):
         self.assertIsNone(pdt.assert_frame_equal(df_popularity,df_test_popularity))
 
     def test_by_launch_date(self):
+        """ Test discovery_data.by_launch_date returns correct DataFrame """
         df_launch_date = by_launch_date(df_test)
 
         if df_test_launch_date is None:
@@ -87,6 +93,7 @@ class DiscoveryTest(unittest.TestCase):
         self.assertIsNone(pdt.assert_frame_equal(df_launch_date,df_test_launch_date))
     
     def test_by_distance(self):
+        """ Test discovery_data.by_distance returns correct DataFrame """
         df_distance = by_distance(df_test,[24.9412,60.1709])
 
         if df_test_distance is None:

@@ -1,16 +1,34 @@
 from flask import Flask,jsonify,request
-from .discovery_data import by_popularity,by_launch_date,by_distance
-from .json_data import load_as_df, dataframe_to_json
+from flask_caching import Cache
+from discovery_data import by_popularity,by_launch_date,by_distance
+from json_data import load_as_df, dataframe_to_json
 import json as JSON
 import pandas
 import os.path
 
+cache_config = {
+    "DEBUG": True,
+    "CACHE_TYPE": "simple", # Flask-Caching related configs
+    "CACHE_DEFAULT_TIMEOUT": 100
+}
+
 app = Flask(__name__,instance_relative_config=True)
 app.config['JSON_SORT_KEYS'] = False
+app.config.from_mapping(cache_config)
+cache = Cache(app)
 FILENAME = os.path.join(app.static_folder, 'restaurants.json')
 
 @app.route('/discovery')
-def discovery():
+@cache.cached(timeout=50)
+def generate_endpoint():
+    """ Generates restaurant json endpoint based on three criteria.
+
+    1. popularity: discovery_data.by_popylarity
+    2. launch date: discover_data.by_launch_date
+    3. distance from user: discovery_data.by_distance
+    
+    Loads based on two query parameters users latitude and longitude [lat,lon] as numbers.
+    """
     restaurants, err = load_as_df(file=FILENAME)
 
     if restaurants is None:
@@ -55,5 +73,5 @@ def discovery():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, use_debugger=False, use_reloader=False)
+    app.run(debug=True, use_debugger=True, use_reloader=True)
 

@@ -3,6 +3,11 @@ import pandas as pd
 import sys
 
 def load_as_df(file='restaurants.json'):
+    """ Loads .json file into pandas DataFrame
+    
+    Keyword arguments:
+    file -- json file
+    """
     try:
         with open(file, 'r') as json_file:
             data = JSON.load(json_file)
@@ -16,6 +21,11 @@ def load_as_df(file='restaurants.json'):
         return None, sys.exc_info()[1]
 
 def dataframe_to_json(section):
+    """ Converts tuple to JSON 
+
+    Keyword arguments:
+    section -- tuple: ('example title', pandas.DataFrame)
+    """
     if (section[1].empty):
         return None
         
