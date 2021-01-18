@@ -1,0 +1,84 @@
+{
+  "restaurants": [
+    {
+      "blurhash": "UAN=8k?LS~M:ErJFs%t0MDMWRqo@%BxSV{RX",
+      "launch_date": "2020-04-20",
+      "location": [24.938082, 60.17626],
+      "name": "Sea Chain",
+      "online": true,
+      "popularity": 0.9569904141
+    },
+    {
+      "blurhash": "UKB;Mk]|I^oJ1SJD$ebHESNMj[a}-4xBNeWX",
+      "launch_date": "2020-10-25",
+      "location": [24.949733, 60.166172],
+      "name": "Bacon Basket",
+      "online": true,
+      "popularity": 0.9482709721
+    },
+    {
+      "blurhash": "UIEejN}*9|VzGob=wKV{5%S1xaS^r3RVbpxn",
+      "launch_date": "2020-06-06",
+      "location": [24.92619, 60.177111],
+      "name": "Fried Spinach",
+      "online": true,
+      "popularity": 0.93952156
+    },
+    {
+      "blurhash": "UDSoswyZVqm.p%cRjLaKUgZ+k.kWrFZ%a$kX",
+      "launch_date": "2020-11-26",
+      "location": [24.938908, 60.160413],
+      "name": "Salt",
+      "online": true,
+      "popularity": 0.8954324473
+    },
+    {
+      "blurhash": "UI97ru%EIvocNMa#t2oc0YIvxnR.-hocIvWF",
+      "launch_date": "2020-01-20",
+      "location": [24.938353, 60.172132],
+      "name": "Chili Pepper",
+      "online": true,
+      "popularity": 0.8934866289
+    },
+    {
+      "blurhash": "UNDLy=}iEmRqT1S6nis*7uOnwKW=RDaetKk8",
+      "launch_date": "2020-04-15",
+      "location": [24.931383, 60.172675],
+      "name": "Papas Burger Party",
+      "online": true,
+      "popularity": 0.8212304387
+    },
+    {
+      "blurhash": "UDSYr*v7X%kVq0cOi%etTca$nibqr4a8bqk7",
+      "launch_date": "2020-01-05",
+      "location": [24.930132, 60.152363],
+      "name": "Fake Tomato Mafia",
+      "online": true,
+      "popularity": 0.7953685298
+    },
+    {
+      "blurhash": "UFHIoI^rEURS%xx=nhV]1UJE$wkVU{R7XmtP",
+      "launch_date": "2020-10-16",
+      "location": [24.92958, 60.162341],
+      "name": "Fried Cheese Burger",
+      "online": true,
+      "popularity": 0.789944501
+    },
+    {
+      "blurhash": "UEPh{Wz}O%r^H5O;rwbbMtR#o#W-#anmSbad",
+      "launch_date": "2020-08-07",
+      "location": [24.937487, 60.17703],
+      "name": "Chocolate",
+      "online": true,
+      "popularity": 0.7620805719
+    },
+    {
+      "blurhash": "UIDbdj=cNuNH%zENWBxZ1Hb]$PkCD6%1ozt6",
+      "launch_date": "2020-10-28",
+      "location": [24.922481, 60.170761],
+      "name": "Tempting Lemon Van",
+      "online": true,
+      "popularity": 0.7606795593
+    }
+  ]
+}

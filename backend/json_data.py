@@ -1,28 +1,18 @@
 import json as JSON
 import pandas as pd
 
-def load_json(file='restaurants.json'):
-
+def load_as_df(file='restaurants.json'):
     try:
         with open(file, 'r') as json_file:
             data = JSON.load(json_file)
             df = pd.json_normalize(data['restaurants'])
-            return df, True, None
+            return df, None
     except OSError as err:
-        return None, False, "JSON file not found"
+        return None, "JSON file {} not found".format(file)
     except:
-        return None, False, "Error in file format {0}".format(file)
-
-
-
-def to_dataframe():
-    
-    df = pd.json_normalize(json_data['restaurants'])
-
-    return df
+        return None, "Error in file format {}".format(file)
 
 def dataframe_to_json(section):
-
     if (section[1].empty):
         return None
 

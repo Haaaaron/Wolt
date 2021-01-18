@@ -1,0 +1,84 @@
+{
+  "restaurants": [
+    {
+      "blurhash": "UGGb5p^|4@xEESt6xWWD1vS2xGkBQ;NHtixY",
+      "launch_date": "2020-12-24",
+      "location": [24.933944, 60.16461],
+      "name": "Papas Octopus Factory",
+      "online": true,
+      "popularity": 0.3595856939
+    },
+    {
+      "blurhash": "UFT8lemKgHpAq2cPesi%b.b.f~e?rLikf7f}",
+      "launch_date": "2020-12-20",
+      "location": [24.949907, 60.161059],
+      "name": "Italian Garden",
+      "online": true,
+      "popularity": 0.0847131675
+    },
+    {
+      "blurhash": "UKG~IVWWS3WWNcjtoKoK10oKoKoK-9WWR,R,",
+      "launch_date": "2020-12-12",
+      "location": [24.926609, 60.156145],
+      "name": "Shrimp XL",
+      "online": true,
+      "popularity": 0.1285057459
+    },
+    {
+      "blurhash": "UBP^%T-rNVeoI9M{t8ozKVX1rzWA$-ozX2kB",
+      "launch_date": "2020-12-07",
+      "location": [24.929344, 60.162536],
+      "name": "Tortilla Place",
+      "online": true,
+      "popularity": 0.2389385357
+    },
+    {
+      "blurhash": "UGB|33~3I;Ic-{%DjcRo0|Ef$%xWIMM-kQxn",
+      "launch_date": "2020-11-29",
+      "location": [24.93623, 60.169935],
+      "name": "Fake Onion",
+      "online": true,
+      "popularity": 0.2303637583
+    },
+    {
+      "blurhash": "UDSoswyZVqm.p%cRjLaKUgZ+k.kWrFZ%a$kX",
+      "launch_date": "2020-11-26",
+      "location": [24.938908, 60.160413],
+      "name": "Salt",
+      "online": true,
+      "popularity": 0.8954324473
+    },
+    {
+      "blurhash": "UGKp#o@uCO#SLwTIrYkBC~X7rsXRduSgb[nP",
+      "launch_date": "2020-11-24",
+      "location": [24.950464, 60.170267],
+      "name": "Butter Hotel",
+      "online": true,
+      "popularity": 0.6251161054
+    },
+    {
+      "blurhash": "U9O[r*?hI_VN*8yNniVx5^NhxTknY]MmX+tx",
+      "launch_date": "2020-11-23",
+      "location": [24.935659, 60.161989],
+      "name": "Chili powder",
+      "online": true,
+      "popularity": 0.7353250034
+    },
+    {
+      "blurhash": "UKD:w1{hElS_TsP4S1rv5@JC$MSzVui|ofX7",
+      "launch_date": "2020-11-17",
+      "location": [24.943237, 60.181173],
+      "name": "Lovely Burger Grill",
+      "online": true,
+      "popularity": 0.0380499928
+    },
+    {
+      "blurhash": "UIDbdj=cNuNH%zENWBxZ1Hb]$PkCD6%1ozt6",
+      "launch_date": "2020-10-28",
+      "location": [24.922481, 60.170761],
+      "name": "Tempting Lemon Van",
+      "online": true,
+      "popularity": 0.7606795593
+    }
+  ]
+}
