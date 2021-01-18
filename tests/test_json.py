@@ -1,7 +1,7 @@
 import os
 import sys
-TESTFILE = os.path.join(os.path.dirname(__file__), "./static/simple.json")
-TESTFILE_INCORRECT_DATA = os.path.join(os.path.dirname(__file__), "./static/incorrect.json")
+TESTFILE = os.path.join(os.path.dirname(__file__), "./snapshots/simple.json")
+TESTFILE_INCORRECT_DATA = os.path.join(os.path.dirname(__file__), "./snapshots/incorrect.json")
 
 TOPDIR = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(TOPDIR)

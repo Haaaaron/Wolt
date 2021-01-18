@@ -1,10 +1,10 @@
 import os
 import sys
-TESTFILE = os.path.join(os.path.dirname(__file__), "./static/restaurants.json")
-TESTFILE_POPULARITY = os.path.join(os.path.dirname(__file__), "./static/test_popularity.json")
-TESTFILE_POPULARITY = os.path.join(os.path.dirname(__file__), "./static/test_popularity.json")
-TESTFILE_LAUNCH_DATE = os.path.join(os.path.dirname(__file__), "./static/test_launch_date.json")
-TESTFILE_DISTANCE = os.path.join(os.path.dirname(__file__), "./static/test_distance.json")
+TESTFILE = os.path.join(os.path.dirname(__file__), "./snapshots/restaurants.json")
+TESTFILE_POPULARITY = os.path.join(os.path.dirname(__file__), "./snapshots/test_popularity.json")
+TESTFILE_POPULARITY = os.path.join(os.path.dirname(__file__), "./snapshots/test_popularity.json")
+TESTFILE_LAUNCH_DATE = os.path.join(os.path.dirname(__file__), "./snapshots/test_launch_date.json")
+TESTFILE_DISTANCE = os.path.join(os.path.dirname(__file__), "./snapshots/test_distance.json")
 
 TOPDIR = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(TOPDIR)
