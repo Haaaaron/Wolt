@@ -1,10 +1,13 @@
+"""
+JSON data handling module to load and convert to pandas dataframe from json file
+"""
 import json as JSON
 import pandas as pd
-import sys
+
 
 def load_as_df(file='restaurants.json'):
     """ Loads .json file into pandas DataFrame
-    
+
     Keyword arguments:
     file -- json file
     """
@@ -17,18 +20,19 @@ def load_as_df(file='restaurants.json'):
         return None, "JSON file {} not found".format(file)
     except KeyError as err:
         return None, "Key:{} not found in JSON file".format(err)
-    except:
-        return None, sys.exc_info()[1]
+    except Exception as err:
+        return None, err
+
 
 def dataframe_to_json(section):
-    """ Converts tuple to JSON 
+    """ Converts tuple to JSON
 
     Keyword arguments:
     section -- tuple: ('example title', pandas.DataFrame)
     """
-    if (section[1].empty):
+    if section[1].empty:
         return None
-        
+
     result = {}
     result['title'] = section[0]
     result['restaurants'] = section[1].to_json(orient="records")

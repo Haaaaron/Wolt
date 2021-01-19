@@ -1,52 +1,60 @@
-import os
+""" Test ./backend/app.py module """
+
 import sys
+import os
+import unittest
+
 topdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(topdir)
 
-import unittest
-from backend import app
+from backend.app import app
+
 
 def setUpModule():
-    global dummy_route
-    global dummy_route_incorrect
-    global dummy_route_missing
-    dummy_route="/discovery?lat=0&lon=0"
-    dummy_route_incorrect="/discovery?lat=a&lon=b"
-    dummy_route_missing="/discovery?lat=None&lon=None"
+    """ unittest default setup """
+    global DUMMY_ROUTE
+    global DUMMY_ROUTE_INCORRECT
+    global DUMMY_ROUTE_MISSING
+    DUMMY_ROUTE = "/discovery?lat=0&lon=0"
+    DUMMY_ROUTE_INCORRECT = "/discovery?lat=a&lon=b"
+    DUMMY_ROUTE_MISSING = "/discovery?lat=None&lon=None"
+
 
 class FlaskTest(unittest.TestCase):
+    """ Unittest test class """
 
     def test_index(self):
         """ Test that Flask returns endpoint """
-        tester = app.app.test_client(self)
-        response = tester.get(dummy_route)
-        self.assertEqual(response.status_code,200)
+        tester = app.test_client(self)
+        response = tester.get(DUMMY_ROUTE)
+        self.assertEqual(response.status_code, 200)
 
     def test_response_type(self):
         """ Test response type is JSON """
-        tester = app.app.test_client(self)
-        response = tester.get(dummy_route)
-        self.assertEqual(response.content_type,"application/json")
+        tester = app.test_client(self)
+        response = tester.get(DUMMY_ROUTE)
+        self.assertEqual(response.content_type, "application/json")
 
     def test_response_data(self):
         """ Test response data contains sections i.e format is correct """
-        tester = app.app.test_client(self)
-        response = tester.get(dummy_route)
+        tester = app.test_client(self)
+        response = tester.get(DUMMY_ROUTE)
         self.assertTrue(b'sections' in response.data)
 
     def test_incorrect_query_params(self):
         """ Test incorrect query params returns error and error message """
-        tester = app.app.test_client(self)
-        response = tester.get(dummy_route_incorrect)
-        self.assertEqual(response.status_code,400)
+        tester = app.test_client(self)
+        response = tester.get(DUMMY_ROUTE_INCORRECT)
+        self.assertEqual(response.status_code, 400)
         self.assertTrue(b'error' in response.data)
 
     def test_missing_query_params(self):
         """ Test missing query params returns error and error message """
-        tester = app.app.test_client(self)
-        response = tester.get(dummy_route_missing)
-        self.assertEqual(response.status_code,400)
+        tester = app.test_client(self)
+        response = tester.get(DUMMY_ROUTE_MISSING)
+        self.assertEqual(response.status_code, 400)
         self.assertTrue(b'error' in response.data)
-        
+
+
 if __name__ == "__main__":
     unittest.main()
