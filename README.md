@@ -75,6 +75,18 @@ Response (Long list of restaurants)
         }, ...
 ``` 
 
+Example error
+
+Get
+
+    curl "http://0.0.0.0:5000/discovery?lat=&lon="
+
+```
+{
+  "error": "'lat'=='' and/or 'lon'=='' query parameters unspecified"
+}
+```
+
 ## Running in development mode:
 
     export FLASK_ENV=development
