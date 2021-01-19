@@ -23,7 +23,7 @@ Export app and run:
     export FLASK_APP='app.py'
     flask run
 
-Open the given url in your (default):
+Open the given url in your browser (default):
 
     http://127.0.0.1:5000/
 
