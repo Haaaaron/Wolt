@@ -25,6 +25,10 @@ Export app and run.
     export FLASK_APP='app.py'
     flask run
 
+Open the given url in your (default):
+
+    http://127.0.0.1:5000/
+
 Note that production mode is set as default for FLASK_ENV.
 
 (On Windows, use set instead of export.)

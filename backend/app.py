@@ -34,6 +34,17 @@ def make_key():
     return request.full_path
 
 
+@app.route('/')
+@cache.cached(timeout=50)
+def index():
+    index = {
+        "Index": "Nothing to see here folks",
+        "For an example": "{}discovery?lat=60.1709&lon=24.941".format(request.url),
+        "For an error": "{}discovery?lat=&lon=".format(request.url)
+    }
+    return jsonify(index)
+
+
 @app.route('/discovery')
 @cache.cached(timeout=50, key_prefix=make_key)
 def generate_endpoint():
