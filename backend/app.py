@@ -66,14 +66,15 @@ def generate_endpoint():
 
     try:
         lat = request.args.get('lat')
-        lon = request.args.get('lon')
+        lon = request.args.get('lon')     
+        if len(lat) == 0 or len(lon) == 0:
+            raise TypeError
         lat = float(lat)
         lon = float(lon)
         user_coordinates = [lon, lat]
     except TypeError as err:
         error = {
-            "error": "'lat'=='{0}' and/or 'lon'=='{1}' \
-                query parameters unspecified".format(lat, lon)
+            "error": "'lat'=='{0}' and/or 'lon'=='{1}' query parameters unspecified".format(lat, lon)
         }
         return jsonify(error), 400
     except ValueError as err:
@@ -101,12 +102,9 @@ def generate_endpoint():
 
 # This chunk is irrelevant since relative imports don't work if app.py is run directly
 if __name__ == '__main__':
-    try:
-        PORT = int(os.environ['PORT']) or 5000
-        HOST = os.environ['HOST'] or '127.0.0.1'
-    except KeyError:
-        PORT = 5000
-        HOST = '127.0.0.1'
+    
+    PORT = int(os.getenv('PORT', 5000))
+    HOST = os.getenv('HOST', '0.0.0.0')
 
     app.run(debug=True, use_debugger=True,
             use_reloader=True, host=HOST, port=PORT)

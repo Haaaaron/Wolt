@@ -9,7 +9,6 @@ sys.path.append(topdir)
 
 from backend.app import app
 
-
 def setUpModule():
     """ unittest default setup """
     global DUMMY_ROUTE
